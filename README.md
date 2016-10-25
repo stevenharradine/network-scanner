@@ -3,10 +3,10 @@ Scans a network looking for nodes and open ports.  If it finds open ports it wil
 
 ## Usage
 ```
-./scan $network $start_host_range $end_host_range $start_port_range $end_port_range
+./scan.sh $network $start_host_range $end_host_range $start_port_range $end_port_range
 ```
 
 example
 ```
-./scan 192.168.1 1 255 1 65535
+./scan.sh 192.168.1 1 255 1 65535
 ```
