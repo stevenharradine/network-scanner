@@ -1,5 +1,5 @@
 #!/bin/bash
-range=("192.168.1."{50..100})
+range=("192.168.1."{98..99})
 
 for ip in "${range[@]}"
 do
@@ -8,7 +8,7 @@ do
     complete_packet_loss=`ping -c 5 $ip | grep "100% packet loss" | wc -l`
 
     if [ "$complete_packet_loss" -ne 1 ]; then	# if you can ping the box then
-    	./port-scanner.sh $ip | tee ports.txt
+    	./port-scanner.sh $ip 1 65535 | tee ports.txt
 		ports=`cat ports.txt`
 
 		webpage_requiring_authentication=`echo $ports | grep :80 | wc -l`
