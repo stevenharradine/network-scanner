@@ -36,12 +36,10 @@ if [ "$auth_required" -ne 1 ] && [ "$hasFailed" = false ]; then
 fi
 
 if [ "$hasFailed" = false ]; then
-	date
 	for ((i=0;i<${#usernames[@]};++i)); do
 		access_granted=`curl --head --silent ${usernames[i]}:${passwords[i]}@$ip | grep "200 OK" | wc -l`
 		if [ "$access_granted" -ne 0 ]; then
 			echo -n "WARNING: access granted u/${usernames[i]} p/${passwords[i]} "
 		fi
 	done
-	date
 fi
